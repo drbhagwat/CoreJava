@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /* 
  * Using only the conditional operator, write a program that reads 
- * three integers and prints the largest. Repeat with Math.max
+ * three integers and prints the largest. Repeat with Math.max.
  */
 public class Exercise3 {
 
