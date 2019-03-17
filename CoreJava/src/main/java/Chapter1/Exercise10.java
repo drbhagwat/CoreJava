@@ -8,6 +8,6 @@ import java.util.Random;
  */
 public class Exercise10 {
   public static void main(String[] args) {
-	System.out.println(Long.toString(new Random().nextLong(),36));
+	System.out.println("A ranom string of letters and digits is" + Long.toString(new Random().nextLong(),36));
   }
 }

@@ -14,6 +14,6 @@ public class Exercise6 {
 	for (int i = 1; i <= 1000; i++) {
 	  result = result.multiply(new BigInteger(Integer.toString(i)));
 	}
-	System.out.println("The result is " + result);
+	System.out.println("1000! using BigIntegers is " + result);
   }
 }

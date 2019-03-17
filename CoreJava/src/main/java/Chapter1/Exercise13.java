@@ -12,6 +12,7 @@ import java.util.Random;
 public class Exercise13 {
   public static void main(String[] args) {
 	List<Integer> listOfLotteryNumbers = new ArrayList<>();
+	List<Integer> pickedNumbers = new ArrayList<>();
 	
 	for (int i = 1; i <= 49; i++) {
 	  listOfLotteryNumbers.add(i);
@@ -19,15 +20,15 @@ public class Exercise13 {
 	
 	for (int j = 0; j <= 5; j++) {
 	  int randomindex = new Random().nextInt(48) + 1;
-	  listOfLotteryNumbers.remove(randomindex);
+	  pickedNumbers.add(listOfLotteryNumbers.remove(randomindex));
 	}
 	
-	listOfLotteryNumbers.sort((i1, i2) -> i1 - i2);
+	pickedNumbers.sort((i1, i2) -> i1 - i2);
 
-	int size = listOfLotteryNumbers.size();
+	int size = pickedNumbers.size();
 	
 	for (int i = 0; i < size; i++) {
-	  System.out.println(listOfLotteryNumbers.get(i));
+	  System.out.println(pickedNumbers.get(i));
 	}
   }
 }
