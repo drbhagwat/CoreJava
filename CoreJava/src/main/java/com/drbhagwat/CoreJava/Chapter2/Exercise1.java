@@ -14,15 +14,13 @@ class Exercise1 {
 	Month month = localDate.getMonth();
 	int year = localDate.getYear();
 	localDate = LocalDate.of(year, month, 1);
+	
 	int day = localDate.getDayOfMonth();
-
 	DayOfWeek dayOfWeek = localDate.getDayOfWeek();
 	Integer intDay = dayOfWeek.getValue();
-	String dayString = ((Integer)dayOfWeek.getValue()).toString();
 
 	System.out.println(month.toString() + " " + year);
 	System.out.println();
-
 	System.out.println("Sun Mon Tue Wed Thu Fri Sat");
 	System.out.println();
 
