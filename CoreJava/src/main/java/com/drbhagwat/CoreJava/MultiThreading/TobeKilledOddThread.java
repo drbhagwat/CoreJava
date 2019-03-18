@@ -1,16 +1,15 @@
 package com.drbhagwat.CoreJava.MultiThreading;
 
-public class TobeKilledThread extends Thread {
-
+public class TobeKilledOddThread extends Thread {
   private volatile Thread stopMe;
 
-  public TobeKilledThread() {
+  public TobeKilledOddThread() {
 	stopMe = Thread.currentThread();
 	System.out.println("The value of stopMe is " + stopMe);
   }
 
-  public void killCurrentThread() {
-	System.out.println("Killing the thread now");
+  public void kill() {
+	System.out.println("Killing the Odd Thread now");
 	stopMe = null;
   }
 
@@ -22,7 +21,7 @@ public class TobeKilledThread extends Thread {
 	  for (int i = 0; i < 100; i++) {
 
 		if (i % 2 != 0) {
-		  System.out.println(i);
+		  System.out.println(i + " printed from the Odd Thread");
 		}
 	  }
 	}
