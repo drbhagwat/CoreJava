@@ -2,44 +2,49 @@ package com.drbhagwat.CoreJava.Chapter2;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+
+import static java.time.LocalDate.*;
+import static java.lang.System.*;
+
 import java.time.Month;
 
 /* 
  * Write a calendar printing program to print the calendar of the current month, 
- * so it starts the week on a Sunday.
+ * so it starts the week on a Sunday. Use static imports for the System and LocalDate
+ * classes.
  */
-class Exercise1 {
+class Cal {
   public static void main(String args[]) {
-	LocalDate localDate = LocalDate.now();
+	LocalDate localDate = now();
 	Month month = localDate.getMonth();
 	int year = localDate.getYear();
-	localDate = LocalDate.of(year, month, 1);
+	localDate = of(year, month, 1);
 	
 	int day = localDate.getDayOfMonth();
 	DayOfWeek dayOfWeek = localDate.getDayOfWeek();
 	Integer intDay = dayOfWeek.getValue();
 
-	System.out.println(month.toString() + " " + year);
-	System.out.println();
-	System.out.println("Sun Mon Tue Wed Thu Fri Sat");
-	System.out.println();
+	out.println(month.toString() + " " + year);
+	out.println();
+	out.println("Sun Mon Tue Wed Thu Fri Sat");
+	out.println();
 
 	int numberOfSpaces = 4 * intDay.intValue();
 
 	for (int i = 0; i < numberOfSpaces; i++) {
-	  System.out.print(" ");
+	  out.print(" ");
 	}
 
-	System.out.printf("%-4d", day);
+	out.printf("%-4d", day);
 
 	while ((localDate = localDate.plusDays(1)).getMonth() == month) {
 	  day++;
-	  System.out.printf("%-4d", day);
+	  out.printf("%-4d", day);
 
 	  if (localDate.getDayOfWeek() == DayOfWeek.SATURDAY) {
-		System.out.printf("\n");
+		out.printf("\n");
 	  }
 	}
-	System.out.printf("\n");
+	out.printf("\n");
   }
 }
