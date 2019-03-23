@@ -1,9 +1,5 @@
 package com.drbhagwat.CoreJava.Chapter3;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.IntSupplier;
-
 /* 
  * Implements a static of method of the IntSequence class that yields a sequence with the arguments. 
  * For example, IntSequence.of(3, 1, 4, 1, 5, 9) yields a sequence with six values. Extra credit if
@@ -13,6 +9,13 @@ import java.util.function.IntSupplier;
  * with lambda expression. 
  */
 public interface IntSequence {
+  public default boolean hasNext() {
+	return true;
+  }
+
+  public static int next(int i) {
+	return i;
+  };
 
   public static int[] of(int... values) {
 	int a[] = new int[values.length];
@@ -29,17 +32,9 @@ public interface IntSequence {
 	return a;
   }
 
-  public static List<Integer> constant(int i) {
-	List<Integer> listOfIntegers = new ArrayList<>();
-
-	IntSequence intSequence = new IntSequence() {
-	  {
-		for (int j = 0; j < 100; j++) {
-		  IntSupplier intSupplier = () -> i;
-		  listOfIntegers.add(intSupplier.getAsInt());
-		}
-	  }
-	};
-	return listOfIntegers;
+  public static void constant(int i) {
+	for(;;) {
+	  System.out.println(next(i));
+	}
   }
 }
