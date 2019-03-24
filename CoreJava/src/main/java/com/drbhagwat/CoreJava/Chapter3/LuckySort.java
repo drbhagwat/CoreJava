@@ -13,6 +13,7 @@ import java.util.List;
 public class LuckySort implements Comparator<String> {
 
   private static List<String> arrayList = new ArrayList<>();
+  private static List<String> newArrayList = new ArrayList<>();
 
   @Override
   public int compare(String o1, String o2) {
@@ -20,7 +21,25 @@ public class LuckySort implements Comparator<String> {
   }
 
   public static void luckySort(List<String> arrayList, Comparator<String> comparator) {
-	arrayList.sort(comparator);
+	do {
+	  Collections.shuffle(arrayList);
+	} while(!isSame(arrayList, newArrayList));
+  }
+
+  public static boolean isSame(List<String> arrayList, List<String> newArrayList) {
+	int srcLen = arrayList.size();
+	int destLen = newArrayList.size();
+	
+	if (srcLen != destLen) {
+	  return false;
+	}
+		
+	for(int i = 0; i < srcLen; i++) {
+	  if (! (arrayList.get(i).equals(newArrayList.get(i)))) {
+		return false;
+	  }
+	}
+	return true;
   }
 
   public static void main(String[] args) {
@@ -28,9 +47,16 @@ public class LuckySort implements Comparator<String> {
 	arrayList.add("ganesh");
 	arrayList.add("shrimati");
 	arrayList.add("rama");
+	
 	Comparator<String> comparator = (first, second) -> ( first.compareTo(second));
-	
+	arrayList.sort(comparator);
+
+	newArrayList.add("1");
+	newArrayList.add("2");
+	newArrayList.add("3");
+	newArrayList.add("4");
+
+	Collections.copy(newArrayList, arrayList);
 	luckySort(arrayList, comparator);
-	
   }
 }
