@@ -10,7 +10,7 @@ package com.drbhagwat.CoreJava.Chapter3;
  * The second method should run all methods in the current thread and return when the last one has 
  * completed. 
  */
-public class Example10 {
+public class Exercise10 {
 
   public static void runTogether(Runnable... tasks) {
 
