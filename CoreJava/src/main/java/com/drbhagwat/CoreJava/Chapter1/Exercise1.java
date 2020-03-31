@@ -2,21 +2,24 @@ package com.drbhagwat.CoreJava.Chapter1;
 
 import java.util.Scanner;
 
-/* 
- * Write a program that reads an integer and prints it in binary, 
- * octal and hexadecimal. Print the reciprocal as a hexadecimal 
- * floating-point number. 
+/*
+ * Write a program that reads an integer and prints it in binary,
+ * octal and hexadecimal. Print the reciprocal as a hexadecimal
+ * floating-point number.
  */
 class Exercise1 {
-  public static void main(String args[]) {
-	System.out.print("Please input a number: ");
+  public static void main(String[] args) {
+    System.out.print("Please input a number: ");
 
-	Scanner scanner = new Scanner(System.in);
-	int i = scanner.nextInt();
-	scanner.close();
+    Scanner scanner = new Scanner(System.in);
+    int i = scanner.nextInt();
+    scanner.close();
 
-	System.out.printf(
-		"The number's decimal representation is -> %d\nbinary representation is -> %s\noctal representation is -> %o\nhexadecimal representation is -> %x\nand its reciprocal in hexadecimal representation is -> %a\n",
-		i, Integer.toBinaryString(i), i, i, 1.0 / i);
+    System.out.printf("The number's decimal representation is -> %d,\n" +
+            "binary representation is -> %s,\n" +
+            "octal representation is -> %o,\n" +
+            "hexadecimal representation is -> %x,\n" +
+            "and its reciprocal in hexadecimal representation is -> %a\n",
+        i, Integer.toBinaryString(i), i, i, 1.0 / i);
   }
 }
