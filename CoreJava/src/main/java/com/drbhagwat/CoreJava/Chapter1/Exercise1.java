@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /*
  * Problem Statement:
+ *
  * Write a program that reads an integer and prints it in binary, octal and hexadecimal. Print the reciprocal as a
  * hexadecimal floating-point number.
  */
@@ -11,6 +12,10 @@ import java.util.Scanner;
 /**
  * This program reads an integer and prints it in binary, octal and hexadecimal. It also prints the reciprocal of
  * the same number in the hexadecimal floating-point format.
+ *
+ * @author : Dinesh Bhagwat
+ * @version : 1.0
+ * @since : 2020-04-01
  */
 class Exercise1 {
   public static void main(String[] args) {
