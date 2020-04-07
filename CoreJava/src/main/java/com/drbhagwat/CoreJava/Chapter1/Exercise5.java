@@ -4,7 +4,7 @@ package com.drbhagwat.CoreJava.Chapter1;
 /*
  * Problem Statement:
  *
- * What happens when you cast a Double to an int that is larger than the largest possible int value. Try it out.
+ * What happens when you cast a double (that is larger than the largest possible int value) to an int. Try it out.
  */
 
 /**
