@@ -2,56 +2,61 @@ package com.drbhagwat.CoreJava.Chapter1;
 
 import java.util.Scanner;
 
-/* 
+/*
  * Write a program that reads a string and prints all of its nonempty substrings.
  */
 public class Exercise8 {
   public static void main(String[] args) {
-	Scanner scanner = new Scanner(System.in);
-	System.out.print("Please input a string: ");
-	String string = scanner.nextLine();
-	scanner.close();
-	int len = string.length();
-	System.out.println("All non-empty substrings of " + string + " follow:");
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("Please input a string: ");
+    String string = scanner.nextLine();
+    scanner.close();
+    int len = string.length();
+    System.out.println("All non-empty substrings of " + string + " follow:");
 
-	for (int i = 1; i <= len; i++) {
-	  printCombination(new StringBuffer(string), len, i);
-	}
+    for (int i = 0; i < len ; i++) {
+
+			for (int j = i + 1 ; j <= len; j++) {
+				if ( (j - i) == len) {
+					System.out.println(string);
+				} else {
+					String subString = string.substring(i, j);
+					int subStringLength = subString.length();
+					permute(subString, 0, subStringLength - 1);
+				}
+			}
+    }
   }
 
-  /*
-   * string ---> input String
-   * data ---> temporary String to store current
-   * combination start & end ---> Staring and Ending indexes in string 
-   * index ---> Current index in data 
-   * r ---> Size of a combination to be printed
-   */
-  static void combinationUtil(StringBuffer string, StringBuffer data, int start, int end, int index, int r) {
-	// Current combination is ready to be printed, print it
-	if (index == r) {
-	  
-	  for (int j = 0; j < r; j++) {
-		System.out.print(data.charAt(j));
-	  }
-	  System.out.println();
-	}
+  static void permute(String string, int l, int r) {
+    int i;
 
-	// replace index with all possible elements. The condition
-	// "end-i+1 >= r-index" makes sure that including one element
-	// at index will make a combination with remaining elements
-	// at remaining positions
-	for (int i = start; (i <= end && ((end - i + 1) >= (r - index))); i++) {
-	  data.replace(index, i, new String(string.charAt(i) + ""));
-	  combinationUtil(string, data, i + 1, end, index + 1, r);
-	}
+    if (l == r) {
+      System.out.println(string);
+    } else {
+
+      for (i = l; i <= r; i++) {
+				string = swap(string,  l,  i);
+				permute(string, l+1, r);
+				string = swap(string,l,i);
+      }
+    }
   }
 
-  // The main function that prints all combinations of size r
-  // in String of size n. This function mainly uses combinationUtil()
-  static void printCombination(StringBuffer arr, int n, int r) {
-	// A temporary String to store all combination one by one
-	StringBuffer data = new StringBuffer(arr);
-	// Print all combinations using temporary String data
-	combinationUtil(arr, data, 0, n - 1, 0, r);
-  }
+	/**
+	 * Swap Characters at position
+	 * @param a string value
+	 * @param i position 1
+	 * @param j position 2
+	 * @return swapped string
+	 */
+	private static String swap(String a, int i, int j)
+	{
+		char temp;
+		char[] charArray = a.toCharArray();
+		temp = charArray[i] ;
+		charArray[i] = charArray[j];
+		charArray[j] = temp;
+		return String.valueOf(charArray);
+	}
 }
