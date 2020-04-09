@@ -1,5 +1,8 @@
 package com.drbhagwat.CoreJava.Chapter1;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 /*
@@ -15,42 +18,33 @@ public class Exercise8 {
     System.out.println("All non-empty substrings of " + string + " follow:");
 
     for (int i = 0; i <= len; i++) {
-      printCombination(string.toCharArray(), len, i);
+      List<int[]> combinations = generate(len, i);
+
+      for (int[] combination : combinations) {
+        System.out.println(Arrays.toString(combination));
+      }
     }
   }
 
-  /* arr[]  ---> Input Array
-    data[] ---> Temporary array to store current combination
-    start & end ---> Staring and Ending indexes in arr[]
-    index  ---> Current index in data[]
-    r ---> Size of a combination to be printed */
-  static void combinationUtil(char arr[], char data[], int start,
-                              int end, int index, int r) {
-    // Current combination is ready to be printed, print it
-    if (index == r) {
-      for (int j = 0; j < r; j++)
-        System.out.print(data[j] + " ");
-      System.out.println();
-      return;
-    }
-
-    // replace index with all possible elements. The condition
-    // "end-i+1 >= r-index" makes sure that including one element
-    // at index will make a combination with remaining elements
-    // at remaining positions
-    for (int i = start; i <= end && end - i + 1 >= r - index; i++) {
-      data[index] = arr[i];
-      combinationUtil(arr, data, i + 1, end, index + 1, r);
-    }
+  private static List<int[]> generate(int n, int r) {
+    List<int[]> combinations = new ArrayList<>();
+    helper(combinations, new int[r], 0, n - 1, 0);
+    return combinations;
   }
 
-  // The main function that prints all combinations of size r
-  // in arr[] of size n. This function mainly uses combinationUtil()
-  static void printCombination(char arr[], int n, int r) {
-    // A temporary array to store all combination one by one
-    char data[] = new char[r];
+  private static void helper(List<int[]> combinations, int data[], int start, int end, int index) {
 
-    // Print all combination using temprary array 'data[]'
-    combinationUtil(arr, data, 0, n - 1, 0, r);
+    if (index == data.length) {
+      int[] combination = data.clone();
+      combinations.add(combination);
+    } else {
+
+      if (start <= end) {
+        data[index] = start;
+        helper(combinations, data, start + 1, end, index + 1);
+        helper(combinations, data, start + 1, end, index);
+      }
+    }
   }
 }
+
