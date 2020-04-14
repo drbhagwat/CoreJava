@@ -1,0 +1,14 @@
+
+T
+java:S4973%"9Use the "equals" method if value comparison was intended.(Òúÿÿÿÿ
+T
+java:S4973$"9Use the "equals" method if value comparison was intended.(ØËóÃşÿÿÿÿ
+S	java:S106""9Replace this use of System.out or System.err by a logger.(åÙí“úÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Í†¥Ä
+S	java:S106%"9Replace this use of System.out or System.err by a logger.(Òúÿÿÿÿ
+O
+java:S4973#"9Use the "equals" method if value comparison was intended.(À©–ı
+S	java:S106$"9Replace this use of System.out or System.err by a logger.(ØËóÃşÿÿÿÿ
+N	java:S106#"9Replace this use of System.out or System.err by a logger.(À©–ı
+6
+java:S2129" Remove this "String" constructor(ààµ‰
