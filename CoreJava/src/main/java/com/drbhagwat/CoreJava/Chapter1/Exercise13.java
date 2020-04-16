@@ -1,6 +1,7 @@
 package com.drbhagwat.CoreJava.Chapter1;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
@@ -37,7 +38,7 @@ public class Exercise13 {
       pickedNumbers.add(listOfLotteryNumbers.remove(randomindex));
     }
 
-    pickedNumbers.sort((i1, i2) -> i1 - i2);
+    pickedNumbers.sort(Comparator.comparingInt(i -> i));
 
     int size = pickedNumbers.size();
 
