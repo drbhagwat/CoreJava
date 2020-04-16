@@ -41,3 +41,11 @@ m
 =src/main/java/com/drbhagwat/CoreJava/Chapter1/Exercise11.java,b\4\b42219e561d55dc16a62c1363601f61cea3caef2
 m
 =src/main/java/com/drbhagwat/CoreJava/Chapter1/Exercise10.java,d\4\d42aa80b6708bc8ac56395fa2eddf971bf5da3b4
+m
+=src/main/java/com/drbhagwat/CoreJava/Chapter1/Exercise13.java,c\e\ce10627dc825d6a949efa60f5c0c06f978ce7bd1
+m
+=src/main/java/com/drbhagwat/CoreJava/Chapter1/Exercise14.java,1\6\1600576c67105fde8bb9fa2ad7690887d14003c1
+m
+=src/main/java/com/drbhagwat/CoreJava/Chapter1/Exercise15.java,1\d\1de7df05e24b4131c6d532cb9811018921233b40
+m
+=src/main/java/com/drbhagwat/CoreJava/Chapter1/Exercise16.java,d\5\d514772f01fa732d96478df52ed1f7ce89d21a52
