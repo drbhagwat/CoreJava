@@ -1,7 +1,8 @@
 package com.drbhagwat.CoreJava.Chapter1;
 
 /* 
- * Improve the average method so it that it is calld with at least one parameter.
+ * Improve the average method so it that it is called with at least one
+ * parameter.
  */
 public class Exercise16 {
   public static void main(String[] args) {
