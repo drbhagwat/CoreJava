@@ -1,0 +1,16 @@
+.gradle/
+target/
+.mvn/
+mvnw
+mvnw.cmd
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### Eclipse IDEA ###
+.classpath
+.project
+.settings
