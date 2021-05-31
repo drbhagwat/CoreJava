@@ -1,37 +1,46 @@
 package com.drbhagwat.Chapter1;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-/*
- * Problem Statement:
- *
- * Write a program that reads an integer and prints it in binary, octal and hexadecimal. Print the reciprocal as a
- * hexadecimal floating-point number.
- */
-
 /**
- * This program reads an integer and prints it in binary, octal and hexadecimal. It also prints the reciprocal of
- * the same number in the hexadecimal floating-point format.
+ * The following program is a solution to Exercise1 in Chapter1.
+ * <p>
+ * Write a program that reads an integer and prints it in binary, octal and hexadecimal.
+ * Print the reciprocal as a hexadecimal floating-point number.
  *
  * @author : Dinesh Bhagwat
  * @version : 1.0
- * @since : 2020-04-01
+ * @since : 2021-05-31
  */
-class Exercise1 {
-  public static void main(String[] args) {
-    System.out.print("Please input an integer ->" +
-        " ");
+public class Exercise1 {
+    /**
+     * The main method reads the next integer from the standard input.
+     * If the integer is invalid, the method re-enters the loop, prompting for an integer again.
+     * If the integer is valid, it is processed further for the desired result.
+     *
+     * @param args - command-line arguments (none).
+     * @throws InputMismatchException - throws this Exception, when an invalid integer is read.
+     */
+    public static void main(String[] args) throws InputMismatchException {
+        Scanner scanner = new Scanner(System.in);
 
-    Scanner scanner = new Scanner(System.in);
-    int i = scanner.nextInt();
+        while (true) {
+            System.out.print("Please input an integer -> " + " ");
 
-    System.out.printf("The number's binary representation is -> %s,\n" +
-            "octal representation is -> %o,\n" +
-            "hexadecimal representation is -> %x,\n" +
-            "and its reciprocal (in hexadecimal representation) is -> %a\n",
-        Integer.toBinaryString(i), i, i, 1.0 / i);
-
-    // As a good practice, close the system resource (when not needed), as they are limited in number
-    scanner.close();
-  }
+            try {
+                int i = scanner.nextInt();
+                System.out.printf("The integer %d's binary equivalent is -> %s, " +
+                                "octal equivalent  is -> %o, " +
+                                "hex equivalent is -> %x, " +
+                                "and its reciprocal (in hex) is -> %a",
+                        i, Integer.toBinaryString(i), i, i, 1.0 / i);
+                break;
+            } catch (InputMismatchException imE) {
+                scanner.nextLine(); // skip the new-line still present in the input steam
+            }
+        }
+        // As a good practice, always close the system resource (when not needed), as they are limited in number
+        scanner.close();
+    }
 }
