@@ -18,7 +18,7 @@ public class Exercise3 {
      * This method prompts the end-user to enter 3 integers (either on a single line, separated by white space
      * or on three separate lines).
      * If any integer entered is invalid, the method re-enters the while loop prompting for valid integers again.
-     * If any integer entered is valid, the method processes the integer for the desired output.
+     * If all 3 integers entered are valid, the method processes the integers for the desired output.
      *
      * @param args - command-line arguments (none).
      * @throws InputMismatchException - throws this Exception, when an invalid integer is read.
