@@ -4,20 +4,20 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * The following program is a solution to Exercise1 in Chapter1.
+ * The following program is a solution to Exercise1 of Chapter1.
  * <p>
  * Write a program that reads an integer and prints it in binary, octal and hexadecimal.
  * Print the reciprocal as a hexadecimal floating-point number.
  *
  * @author : Dinesh Bhagwat
  * @version : 1.0
- * @since : 2021-05-31
+ * @since : 2021-06-01
  */
 public class Exercise1 {
     /**
-     * The main method reads the next integer from the standard input.
-     * If the integer is invalid, the method re-enters the loop, prompting for an integer again.
-     * If the integer is valid, it is processed further for the desired result.
+     * This method prompts the end-user to enter an integer from the standard input.
+     * If the integer entered is invalid, the method re-enters the while loop prompting for a valid integer again.
+     * If the integer entered is valid, the method processes the integer for the desired output.
      *
      * @param args - command-line arguments (none).
      * @throws InputMismatchException - throws this Exception, when an invalid integer is read.
