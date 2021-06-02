@@ -17,8 +17,8 @@ public class Exercise3 {
     /**
      * This method prompts the end-user to enter 3 integers (either on a single line, separated by white space
      * or on three separate lines).
-     * If any integer entered is invalid, the method re-enters the while loop prompting for valid integers again.
-     * If all 3 integers entered are valid, the method processes the integers for the desired output.
+     * If any integer so entered is invalid, the method re-enters the while loop, prompting for valid integers again.
+     * If all three integers entered are valid, the method processes them for the desired output.
      *
      * @param args - command-line arguments (none).
      * @throws InputMismatchException - throws this Exception, when an invalid integer is read.
@@ -27,8 +27,8 @@ public class Exercise3 {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.print("Please input 3 integers (on a single line, separated by white space or " +
-                    "on three separate lines)" + ": ");
+            System.out.print("Please input 3 integers (either on a single line, separated by white space " +
+                    "or on three separate lines)" + ": ");
 
             try {
                 int number1 = scanner.nextInt();
