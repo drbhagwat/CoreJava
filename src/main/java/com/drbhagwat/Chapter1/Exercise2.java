@@ -23,7 +23,7 @@ public class Exercise2 {
      * @param args - command-line arguments (none).
      * @throws InputMismatchException - throws this Exception, when an invalid integer is read.
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws InputMismatchException {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
