@@ -34,12 +34,12 @@ public class Exercise2 {
                 angle = (angle %= 360) < 0 ? (angle + 360) : angle;
                 System.out.printf("The normalized angle using modulus operator is -> %d\n", angle);
                 System.out.printf("The normalized angle using Math.floorMod is -> %d\n", Math.floorMod(angle, 360));
+                // As a good practice, always close the system resource (when not needed), as they are limited in number
+                scanner.close();
                 break;
             } catch (InputMismatchException imE) {
                 scanner.nextLine(); // skip the new-line still present in the input steam
             }
         }
-        // As a good practice, always close the system resource (when not needed), as they are limited in number
-        scanner.close();
     }
 }

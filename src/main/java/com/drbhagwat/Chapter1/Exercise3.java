@@ -46,13 +46,12 @@ public class Exercise3 {
                 greatest = Math.max(number3, greater);
 
                 System.out.println("The largest is " + greatest);
-
+                // As a good practice, always close the system resource (when not needed), as they are limited in number
+                scanner.close();
                 break;
             } catch (InputMismatchException imE) {
                 scanner.nextLine(); // skip the new-line still present in the input steam
             }
         }
-        // As a good practice, always close the system resource (when not needed), as they are limited in number
-        scanner.close();
     }
 }

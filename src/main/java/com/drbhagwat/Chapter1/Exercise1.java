@@ -35,12 +35,12 @@ public class Exercise1 {
                                 "hex equivalent is -> %x, " +
                                 "and its reciprocal (in hex) is -> %a",
                         i, Integer.toBinaryString(i), i, i, 1.0 / i);
+                // As a good practice, always close the system resource (when not needed), as they are limited in number
+                scanner.close();
                 break;
             } catch (InputMismatchException imE) {
                 scanner.nextLine(); // skip the new-line still present in the input steam
             }
         }
-        // As a good practice, always close the system resource (when not needed), as they are limited in number
-        scanner.close();
     }
 }

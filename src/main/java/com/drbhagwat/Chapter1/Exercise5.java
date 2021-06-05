@@ -1,6 +1,8 @@
 package com.drbhagwat.Chapter1;
 
 /**
+ * The following program is a solution to Exercise5 of Chapter1.
+ * <p>
  * What happens when you cast a double (that is larger than the largest possible int value) to an int. Try it out.
  *
  * @author : Dinesh Bhagwat

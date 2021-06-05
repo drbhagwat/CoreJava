@@ -3,6 +3,8 @@ package com.drbhagwat.Chapter1;
 import java.math.BigInteger;
 
 /**
+ * The following program is a solution to Exercise6 of Chapter1.
+ * <p>
  * This program computes 1000! using BigInteger.
  *
  * @author : Dinesh Bhagwat

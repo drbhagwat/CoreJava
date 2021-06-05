@@ -1,58 +1,69 @@
 package com.drbhagwat.Chapter1;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-/*
- * Problem Statement:
- *
- * Write a program that reads in two integers between 0 and 4294967295, stores them in int variables, and computes
- * and displays their unsigned sum, difference, product, quotient, and remainder. Do not convert them long values.
- */
-
 /**
- * This program reads in two integers between 0 and 4294967295, stores them in int variables, and computes and
- * displays their unsigned sum, difference, product, quotient, and remainder. Do not convert them long values.
+ * The following program is a solution to Exercise7 of Chapter1.
+ * <p>
+ * This program reads in two integers between 0 and 4294967295 (both inclusive), stores them in int variables, and
+ * computes and displays their unsigned sum, difference, product, quotient, and remainder. Do not convert them to
+ * long values.
  *
  * @author : Dinesh Bhagwat
  * @version : 1.0
- * @since : 2020-04-07
+ * @since : 2021-06-05
  */
 public class Exercise7 {
-  public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
-    long longValue1;
-    long longValue2;
+    private static final long LONG_VALUE_MIN = 0L;
+    private static final long LONG_VALUE_MAX = 4294967295L;
 
-    System.out.print("Please input two integers separated by a space - both should be between 0 and 4294967295 " +
-        "(both " +
-        "exclusive): ");
-    do {
-      longValue1 = scanner.nextLong();
+    /**
+     * This method computes reads in two integers between 0 and 4294967295, stores them in int variables, and computes and
+     * displays their unsigned sum, difference, product, quotient, and remainder. Do not convert them to long values.
+     *
+     * @param args - command-line arguments (none).
+     */
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-      if (longValue1 < 0 || longValue1 > 4294967295L) {
-        System.out.println("The first integer is not within the range. Please re-enter the same: ");
-      }
-    } while ((longValue1 < 0) || (longValue1 > 4294967295L));
+        while (true) {
+            System.out
+                    .print("Please input two integers (each of them being separated by white space, or on a separate line) - both should lie between " +
+                            LONG_VALUE_MIN + " and " + LONG_VALUE_MAX + " (both inclusive): ");
 
-    do {
-      longValue2 = scanner.nextLong();
+            try {
+                long longValue1 = scanner.nextLong();
 
-      if (longValue2 < 0 || longValue2 > 4294967295L) {
-        System.out.println("The second integer is not within the range. Please re-enter the same: ");
-      }
-    } while ((longValue2 < 0) || (longValue2 > 4294967295L));
+                if (longValue1 < LONG_VALUE_MIN || longValue1 > LONG_VALUE_MIN) {
+                    System.out.println("The first integer is not within the range " + LONG_VALUE_MIN + " and " +
+                            LONG_VALUE_MAX + " Please re-enter it.");
+                    scanner.nextLine(); // skip the new-line still present in the input steam
+                    continue;
+                }
+                long longValue2 = scanner.nextLong();
 
-    scanner.close();
+                if (longValue2 < LONG_VALUE_MIN || longValue2 > LONG_VALUE_MAX) {
+                    System.out.println("The second integer is not within the range " + LONG_VALUE_MIN + " and " +
+                            LONG_VALUE_MAX + " Please re-enter it.");
+                    scanner.nextLine(); // skip the new-line still present in the input steam
+                    continue;
+                }
+                int intValue1 = (int) Integer.toUnsignedLong((int) longValue1);
+                int intValue2 = (int) Integer.toUnsignedLong((int) longValue2);
 
-    int intValue1 = Integer.parseUnsignedInt(Long.toUnsignedString(longValue1));
-    int intValue2 = Integer.parseUnsignedInt(Long.toUnsignedString(longValue2));
-
-    System.out.println("The first integer value is " + intValue1);
-    System.out.println("The second integer value is " + intValue2);
-    System.out.println("Their sum is " + (intValue1 + intValue2));
-    System.out.println("Their difference is " + (intValue1 - intValue2));
-    System.out.println("Their product is " + (intValue1 * intValue2));
-    System.out.println("Their quotient is " + Integer.divideUnsigned(intValue1, intValue2));
-    System.out.println("Their remainder is " + Integer.remainderUnsigned(intValue1, intValue2));
-  }
+                System.out.println("The first integer is " + intValue1);
+                System.out.println("The second integer is " + intValue2);
+                System.out.println("Their sum is " + (intValue1 + intValue2));
+                System.out.println("Their difference is " + (intValue1 - intValue2));
+                System.out.println("Their product is " + intValue1 * intValue2);
+                System.out.println("Their quotient is " + Integer.divideUnsigned(intValue1, intValue2));
+                System.out.println("Their remainder is " + Integer.remainderUnsigned(intValue1, intValue2));
+                scanner.close();
+                break;
+            } catch (InputMismatchException imE) {
+                scanner.nextLine(); // skip the new-line still present in the input steam
+            }
+        }
+    }
 }
