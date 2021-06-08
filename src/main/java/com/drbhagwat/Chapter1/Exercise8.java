@@ -1,53 +1,53 @@
 package com.drbhagwat.Chapter1;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
-/*
- * Problem Statement:
- *
- * Write a program that reads a string and prints all of its substrings.
- */
-
 /**
- * This program reads a string and prints all of its substrings.
+ * The following program is a solution to Exercise8 of Chapter1.
+ * <p>
+ * The following program reads a string and prints all of its substrings.
  *
  * @author : Dinesh Bhagwat
  * @version : 1.0
- * @since : 2020-04-11
+ * @since : 2021-06-08
  */
 public class Exercise8 {
-  // define a static member variable to store the user input, so it can be in any of the helper methods.
-  private static String string;
-
-  public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("Please input a string: ");
-    string = scanner.nextLine();
-    scanner.close();
-    int len = string.length();
-    System.out.println("All substrings of " + string + " follow:");
-
-    for (int i = 0; i <= len; i++) {
-      generate(len, i);
+    /**
+     * This method reads a string and prints all of its substrings.
+     *
+     * @param args - command-line arguments (none).
+     */
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Please input a string: ");
+        // define a final variable to store the user input.
+        final String string = scanner.nextLine();
+        scanner.close();
+        int stringLength = string.length();
+        System.out.println("All substrings of " + string + " follow:");
+        printSubStrings(string);
     }
-  }
 
-  private static void generate(int n, int r) {
-    helper(new char[r], 0, n - 1, 0);
-  }
+    private static void printSubStrings(final String string) {
+        // finding the length of the string
+        final int stringLength = string.length();
 
-  private static void helper(char []data, int start, int end, int index) {
-    if (index == data.length) {
-      System.out.println(Arrays.toString(data));
-    } else {
+        System.out.print("null");
 
-      if (start <= end) {
-        data[index] = string.charAt(start);
-        helper(data, start + 1, end, index + 1);
-        helper(data, start + 1, end, index);
-      }
+        // selection of starting point
+        for (int i = 0; i < stringLength; i++) {
+
+            // selection of ending point
+            for (int j = i; j < stringLength; j++) {
+                System.out.print(',');
+
+                // print from starting point to ending point
+                for (int k = i; k <= j; k++) {
+                    System.out.print(string.charAt(k));
+                }
+            }
+        }
+        System.out.println();
     }
-  }
 }
 
