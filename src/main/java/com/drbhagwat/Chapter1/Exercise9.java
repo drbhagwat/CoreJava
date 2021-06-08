@@ -31,14 +31,14 @@ public class Exercise9 {
 
         String string2 = "d" + "i" + "n" + "e" + "s" + "h";
 
-        System.out.println("Are the contents of string1,  string2 the same? " +
+        System.out.println("Are the contents of string1, string2 the same? " +
                 string1.equals(string2));
         System.out.println("Does string1 refer to the same memory location " +
                 "as string2? " + (string1 == string2));
 
         /*
          * Note that for string3, the memory is allocated on heap. Even though
-         * the content is the same as earlier, the reference is different.
+         * the content is the same as earlier, the reference (memory location where it is stored) is different.
          */
         String string3 = new String("dinesh");
 
@@ -52,8 +52,8 @@ public class Exercise9 {
         String string4 = string3.intern();
 
         System.out.println("Does string4 refer to the same address as string1 " +
-                "after internalizing? " + (string1 == string4));
+                "after internalizing string3? " + (string1 == string4));
         System.out.println("Does string4 refer to the same address as string2 " +
-                "after internalizing? " + (string2 == string4));
+                "after internalizing string3? " + (string2 == string4));
     }
 }
