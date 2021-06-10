@@ -32,8 +32,6 @@ public class Exercise8 {
         // finding the length of the string
         final int stringLength = string.length();
 
-        System.out.print("null");
-
         // selection of starting point
         for (int i = 0; i < stringLength; i++) {
 
