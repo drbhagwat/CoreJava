@@ -23,15 +23,18 @@ public class Exercise13 {
      * @param args - command-line arguments (none).
      */
     public static void main(String[] args) {
-        List<Integer> listOfLotteryNumbers = new ArrayList<>();
+        final int TOTAL_NUMBER_OF_NUMBERS = 49;
+        final int NUMBERS_TO_PICK = 6;
 
-        for (int i = 1; i <= 49; i++) {
+        List<Integer> listOfLotteryNumbers = new ArrayList<>(TOTAL_NUMBER_OF_NUMBERS);
+
+        for (int i = 0; i < TOTAL_NUMBER_OF_NUMBERS; i++) {
             listOfLotteryNumbers.add(i);
         }
         List<Integer> pickedNumbers = new ArrayList<>();
 
-        for (int i = 0; i <= 5; i++) {
-            int randomIndex = new Random().nextInt(48) + 1;
+        for (int i = 0; i < NUMBERS_TO_PICK; i++) {
+            int randomIndex = new Random().nextInt(TOTAL_NUMBER_OF_NUMBERS);
             pickedNumbers.add(listOfLotteryNumbers.remove(randomIndex));
         }
         pickedNumbers.sort(Comparator.comparingInt(i -> i));
