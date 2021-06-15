@@ -4,46 +4,47 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/* 
- * Write a program that stored Pascal's Triangle up to a given n
- * in an Array:ist<ArrayList<Integer>>
+/**
+ * The following program is a solution to Exercise15 of Chapter1.
+ * <p>
+ * Write a program that stores Pascal's Triangle up to a given n in an Array:ist<ArrayList<Integer>>.
  */
 public class Exercise15 {
-  public static void main(String[] args) {
-	List<ArrayList<Integer>> triangle = new ArrayList<ArrayList<Integer>>();
+    /**
+     * This method reads stores Pascal's Triangle up to a given n in an Array:ist<ArrayList<Integer>>.
+     *
+     * @param args - command-line arguments (none).
+     */
+    public static void main(String[] args) {
+        System.out.print("Please input the number of rows in the Pascal's Triangle: ");
+        Scanner scanner = new Scanner(System.in);
+        String numberOfRows = scanner.nextLine();
+        int rowCount = Integer.parseInt(numberOfRows);
+        List<ArrayList<Integer>> triangle = new ArrayList<>();
 
-	System.out.print("Please input the number of rows in the Pascal's Triangle: ");
+        for (int row = 0; row < rowCount; row++) {
+            ArrayList<Integer> aList = new ArrayList<>(row + 1);
 
-	Scanner scanner = new Scanner(System.in);
-	String row = scanner.nextLine();
-	int rowCount = Integer.parseInt(row);
+            for (int k = 0; k <= row; k++) {
+                aList.add(k, 1);
+            }
 
-	for (int i = 0; i < rowCount; i++) {
-	  ArrayList<Integer> aList = new ArrayList<Integer>(i + 1);
+            for (int j = 1; j < row; j++) {
+                ArrayList<Integer> previousRow = triangle.get(row - 1);
+                aList.set(j, previousRow.get(j - 1) + previousRow.get(j));
+            }
+            triangle.add(aList);
+        }
 
-	  for (int k = 0; k < i + 1; k++) {
-		aList.add(0);
-	  }
-	  
-	  aList.set(0, 1);
-	  aList.set(i, 1);
-	  triangle.add(i, aList);
+        for (int row = 0; row < rowCount; row++) {
+            ArrayList<Integer> aList = triangle.get(row);
 
-	  for (int j = 1; j < i; j++) {
-		ArrayList<Integer> previousRow = triangle.get(i - 1);
-		aList.set(j, previousRow.get(j - 1) + previousRow.get(j));
-	  }
-	}
+            for (int col = 0; col < aList.size(); col++) {
+                System.out.printf("%4d", aList.get(col));
+            }
+            System.out.println("");
 
-	for (int i = 0; i < rowCount; i++) {
-	  ArrayList<Integer> aList = triangle.get(i);
-
-	  for (int c = 0; c < aList.size(); c++) {
-		System.out.printf("%4d", aList.get(c));
-	  }
-	  System.out.println("");
-
-	}
-	scanner.close();
-  }
+        }
+        scanner.close();
+    }
 }
