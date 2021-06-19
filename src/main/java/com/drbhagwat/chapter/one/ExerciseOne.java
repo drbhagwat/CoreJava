@@ -1,6 +1,5 @@
 package com.drbhagwat.chapter.one;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
@@ -21,9 +20,8 @@ public class ExerciseOne {
      * If the entered integer is valid, the method processes the integer for the desired output.
      *
      * @param args - command-line arguments (none).
-     * @throws InputMismatchException - throws this Exception, when an invalid integer is read.
      */
-    public static void main(String[] args) throws InputMismatchException {
+    public static void main(String[] args) {
         var logger = Logger.getLogger(Thread.currentThread().getClass().getName());
         var scanner = new Scanner(System.in);
 
@@ -40,9 +38,9 @@ public class ExerciseOne {
                                 "and its reciprocal (in hex) is: %a.",
                         i, Integer.toBinaryString(i), i, i, 1.0 / i);
                 logger.info(message);
-                break; // break out of the while loop, as we successfully read an integer
-            } catch (InputMismatchException imE) {
-                scanner.nextLine(); // skip the new-line, which still present in the input steam
+                break; // break out of the while, as we successfully read an integer
+            } catch (Exception exception) { // catching the common exception because multiple exceptions are thrown
+                scanner.nextLine(); // skip the new-line present in the input steam
             }
         }
     }
