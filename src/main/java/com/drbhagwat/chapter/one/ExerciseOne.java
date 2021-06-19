@@ -28,19 +28,19 @@ public class ExerciseOne {
         var scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.print("Please input an integer: ");
+            System.out.print("Please input any integer: ");
 
             try {
                 var i = scanner.nextInt();
                 // best practice is to close the system resource (as soon as done), as they may be limited in number
                 scanner.close();
-                var message = String.format("The integer %d's binary equivalent is -> %s, " +
-                                "octal equivalent  is -> %o, " +
-                                "hex equivalent is -> %x, " +
-                                "and its reciprocal (in hex) is -> %a",
+                var message = String.format("The integer %d's binary equivalent is: %s,\n " +
+                                "octal equivalent is: %o,\n " +
+                                "hex equivalent is: %x,\n " +
+                                "and its reciprocal (in hex) is: %a.",
                         i, Integer.toBinaryString(i), i, i, 1.0 / i);
                 logger.info(message);
-                break; // breaks out of the while loop since we successfully read an integer
+                break; // break out of the while loop, as we successfully read an integer
             } catch (InputMismatchException imE) {
                 scanner.nextLine(); // skip the new-line, which still present in the input steam
             }
