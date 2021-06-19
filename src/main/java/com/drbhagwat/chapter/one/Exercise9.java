@@ -1,4 +1,4 @@
-package com.drbhagwat.Chapter1;
+package com.drbhagwat.chapter.one;
 
 /**
  * The following program is a solution to Exercise9 of Chapter1.
