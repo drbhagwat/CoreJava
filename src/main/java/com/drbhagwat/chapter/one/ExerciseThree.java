@@ -36,21 +36,19 @@ public class ExerciseThree {
                 var number3 = scanner.nextInt();
                 // As a good practice, always close the system resource (when not needed), as they are limited in number
                 scanner.close();
-
                 var message = "The three numbers are " + number1 + " " + number2 + " " + number3;
                 logger.info(message);
 
                 int greater = (number1 > number2) ? number1 : number2;
                 int greatest = (greater > number3) ? greater : number3;
-
                 message = "The largest is " + greatest;
                 logger.info(message);
 
                 greater = Math.max(number1, number2);
                 greatest = Math.max(number3, greater);
-
                 message = "The largest is " + greatest;
                 logger.info(message);
+
                 break;
             } catch (Exception exception) { // catch the common exception, as multiple exceptions could be thrown
                 scanner.nextLine(); // skip the new-line present in the input steam
