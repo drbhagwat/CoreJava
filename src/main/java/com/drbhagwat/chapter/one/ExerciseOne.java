@@ -4,8 +4,8 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 /**
- * Write a program to read an int and print it in binary, octal, and hexadecimal as well as print
- * its reciprocal as a hexadecimal floating-point number.
+ * Write a program to read an integer and print it in binary, octal, and hexadecimal as well as print its reciprocal
+ * as a hexadecimal floating-point number.
  *
  * @author : Dinesh Bhagwat
  * @version : 1.0
@@ -13,10 +13,9 @@ import java.util.logging.Logger;
  */
 public class ExerciseOne {
   /**
-   * This method prompts the user to enter an integer from the stdin.
-   * If the entered integer is invalid, the method prompts again. Otherwise,
-   * the method prints it in binary, octal, and hexadecimal as well as print
-   * its reciprocal as a hexadecimal floating-point number.
+   * This method prompts the user to enter an integer from the stdin. If the entered integer is invalid, the method
+   * prompts again. Otherwise, it prints it in binary, octal, and hexadecimal as well as print its reciprocal as a
+   * hexadecimal floating-point number.
    *
    * @param args - command-line arguments (none).
    */

@@ -5,8 +5,8 @@ import java.util.logging.Logger;
 
 
 /**
- * Write a program to read an int angle and normalize it to a value between 0 and 359 degrees, Give two
- * solutions - the first with the % operator, and the second with the floorMod.
+ * Write a program to read an integer angle and normalize it to a value between 0 and 359 degrees, Give two solutions
+ * - the first with the % operator, and the second with the floorMod.
  *
  * @author : Dinesh Bhagwat
  * @version : 1.0
@@ -14,9 +14,8 @@ import java.util.logging.Logger;
  */
 public class ExerciseTwo {
   /**
-   * This method prompts the user to enter an integer angle from the stdin.
-   * If the entered integer angle invalid, the method prompts again. Otherwise,
-   * the method reads an integer angle and normalizes it to a value between 0 and 359 degrees,
+   * This method prompts the user to enter an integer angle from the stdin. If the entered integer angle invalid, the
+   * method prompts again. Otherwise, it reads an integer angle and normalizes it to a value between 0 and 359 degrees,
    * It gives two solutions - the first with the % operator, and the second with the floorMod.
    *
    * @param args - command-line arguments (none).
