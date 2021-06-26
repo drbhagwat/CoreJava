@@ -1,7 +1,7 @@
 package com.drbhagwat.chapter.one;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 /**
  * This program reads in two integers between 0 and 4294967295 (both inclusive), stores them in int variables, and
@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author : Dinesh Bhagwat
  * @version : 1.0
- * @since : 2021-06-05
+ * @since : 2021-June-26
  */
 public class Exercise7 {
   private static final long LONG_VALUE_MIN = 0L;
@@ -23,44 +23,55 @@ public class Exercise7 {
    * @param args - command-line arguments (none).
    */
   public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
+    // get the name of the class in a generic way from the current thread instead of hardcoding
+    var logger = Logger.getLogger(Thread.currentThread().getClass().getName());
+    var scanner = new Scanner(System.in);
 
     while (true) {
       System.out
-          .print("Please input two integers (each of them being separated by white space, or on a separate line) - both should lie between " +
+          .print("Please input two integers (each of them separated by white space, or on a separate line) - both should lie between " +
               LONG_VALUE_MIN + " and " + LONG_VALUE_MAX + " (both inclusive): ");
 
       try {
-        long longValue1 = scanner.nextLong();
+        var longValue1 = scanner.nextLong();
+        var longValue2 = scanner.nextLong();
+        var message = "";
 
-        if (longValue1 < LONG_VALUE_MIN || longValue1 > LONG_VALUE_MIN) {
-          System.out.println("The first integer is not within the range " + LONG_VALUE_MIN + " and " +
-              LONG_VALUE_MAX + " Please re-enter it.");
-          scanner.nextLine(); // skip the new-line still present in the input steam
+        if (longValue1 < LONG_VALUE_MIN || longValue1 > LONG_VALUE_MAX) {
+          message = "The first integer is not within the range " + LONG_VALUE_MIN + " and " +
+              LONG_VALUE_MAX + " Please re-enter both integers.";
+          logger.info(message);
+          scanner.nextLine(); // move the scanner to the beginning of next line for an invalid input
           continue;
         }
-        long longValue2 = scanner.nextLong();
-
         if (longValue2 < LONG_VALUE_MIN || longValue2 > LONG_VALUE_MAX) {
-          System.out.println("The second integer is not within the range " + LONG_VALUE_MIN + " and " +
-              LONG_VALUE_MAX + " Please re-enter it.");
-          scanner.nextLine(); // skip the new-line still present in the input steam
+          message = "The second integer is not within the range " + LONG_VALUE_MIN + " and " +
+              LONG_VALUE_MAX + " Please re-enter both integers.";
+          logger.info(message);
+          scanner.nextLine(); // move the scanner to the beginning of next line for an invalid input
           continue;
         }
-        int intValue1 = (int) Integer.toUnsignedLong((int) longValue1);
-        int intValue2 = (int) Integer.toUnsignedLong((int) longValue2);
+        scanner.close(); // close the system resource once done. System resources are limited in number * best practice
+        var intValue1 = (int) Integer.toUnsignedLong((int) longValue1);
+        var intValue2 = (int) Integer.toUnsignedLong((int) longValue2);
 
-        System.out.println("The first integer is " + intValue1);
-        System.out.println("The second integer is " + intValue2);
-        System.out.println("Their sum is " + (intValue1 + intValue2));
-        System.out.println("Their difference is " + (intValue1 - intValue2));
-        System.out.println("Their product is " + intValue1 * intValue2);
-        System.out.println("Their quotient is " + Integer.divideUnsigned(intValue1, intValue2));
-        System.out.println("Their remainder is " + Integer.remainderUnsigned(intValue1, intValue2));
-        scanner.close();
-        break;
-      } catch (InputMismatchException imE) {
-        scanner.nextLine(); // skip the new-line still present in the input steam
+        message = "The first integer is " + intValue1;
+        logger.info(message);
+        message = "The second integer is " + intValue2;
+        logger.info(message);
+        message = "Their sum is " + (intValue1 + intValue2);
+        logger.info(message);
+        message = "Their difference is " + (intValue1 - intValue2);
+        logger.info(message);
+        message = "Their product is " + intValue1 * intValue2;
+        logger.info(message);
+        message = "Their quotient is " + Integer.divideUnsigned(intValue1, intValue2);
+        logger.info(message);
+        message = "Their remainder is " + Integer.remainderUnsigned(intValue1, intValue2);
+        logger.info(message);
+        break; // break out of the while, as we successfully read an integer
+      } catch (Exception exception) {
+        scanner.nextLine();// move the scanner to the beginning of next line for an invalid input
       }
     }
   }
