@@ -8,7 +8,7 @@ import java.util.logging.Logger;
  *
  * @author : Dinesh Bhagwat
  * @version : 1.0
- * @since : 2021-June-24
+ * @since : 2021-June-26
  */
 public class ExerciseFour {
   /**
@@ -20,6 +20,7 @@ public class ExerciseFour {
    * @param args - command-line arguments (none).
    */
   public static void main(String[] args) {
+    // get the name of the class in a generic way from the current thread instead of hardcoding
     var logger = Logger.getLogger(Thread.currentThread().getClass().getName());
     var message = "The smallest double value is " + Math.nextUp(0.0);
     logger.info(message);
