@@ -14,12 +14,14 @@ import java.util.logging.Logger;
 public class ExerciseThree {
   /**
    * This method prompts the end-user to enter 3 integers (either on a single line, separated by white space
-   * or on three separate lines). If any integer entered is invalid, it prompts for 3 integers again. Otherwise, it
-   * uses only the conditional operator, prints the largest. It repeats the solution with Math.max.
+   * or on three separate lines). If any integer entered is invalid, it keeps prompting for 3 integers until the user
+   * enters valid integers. Otherwise, it uses only the conditional operator, prints the largest. It repeats the
+   * solution with Math.max.
    *
    * @param args - command-line arguments (none).
    */
   public static void main(String[] args) {
+    // get the name of the class in a generic way from the current thread instead of hardcoding
     var logger = Logger.getLogger(Thread.currentThread().getClass().getName());
     var scanner = new Scanner(System.in);
 
@@ -31,13 +33,13 @@ public class ExerciseThree {
         var number1 = scanner.nextInt();
         var number2 = scanner.nextInt();
         var number3 = scanner.nextInt();
-        // As a good practice, always close the system resource (when not needed), as they are limited in number
-        scanner.close();
+
+        scanner.close(); // close the system resource once done. System resources are limited in number * best practice
         var message = "The three numbers are " + number1 + " " + number2 + " " + number3;
         logger.info(message);
 
-        int greater = (number1 > number2) ? number1 : number2;
-        int greatest = (greater > number3) ? greater : number3;
+        var greater = (number1 > number2) ? number1 : number2;
+        var greatest = (greater > number3) ? greater : number3;
         message = "The largest is " + greatest;
         logger.info(message);
 
@@ -46,9 +48,9 @@ public class ExerciseThree {
         message = "The largest is " + greatest;
         logger.info(message);
 
-        break;
-      } catch (Exception exception) { // catch the common exception, as multiple exceptions could be thrown
-        scanner.nextLine(); // skip the new-line present in the input steam
+        break; // break out of the while, as we successfully read an integer angle
+      } catch (Exception exception) {  // catch the common exception, as multiple exceptions could be thrown
+        scanner.nextLine(); // move the scanner to the beginning of next line for an invalid input
       }
     }
   }
