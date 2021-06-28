@@ -27,7 +27,7 @@ public class ExerciseEight {
 
   private static void printSubStrings(final String string) {
     // finding the length of the string
-    final int stringLength = string.length();
+    final var stringLength = string.length();
 
     // selection of starting point
     for (var i = 0; i < stringLength; i++) {
