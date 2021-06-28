@@ -9,7 +9,7 @@ package com.drbhagwat.chapter.one;
  * @version : 1.0
  * @since : 2021-June-28
  */
-public class Exercise9 {
+public class ExerciseNine {
   /**
    * Section 1.5.3, "String comparison" (Page 25) has an example of two strings s
    * and t so that s.equals(t) but s != t. This method comes up with a different example that
