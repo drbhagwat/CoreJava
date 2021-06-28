@@ -21,37 +21,29 @@ public class ExerciseNine {
     var string1 = "dinesh";
 
     /*
-     * If you concatenate two string literals and if the resulting content is
-     * the same as an already defined string literal, Java is smart enough to
-     * make the reference of the new string literal point to the string
-     * literal defined earlier - as seen by the following example.
+     * If you concatenate two or even more string literals and if the resulting content is the same as the earlier
+     * defined string literal, Java is smart enough to make the reference of the new string literal point to the
+     * earlier defined string literal - as seen by the following example.
      */
-
     var string2 = "d" + "i" + "n" + "e" + "s" + "h";
 
-    System.out.println("Are the contents of string1, string2 the same? " +
-        string1.equals(string2));
-    System.out.println("Does string1 refer to the same memory location " +
-        "as string2? " + (string1 == string2));
+    System.out.println("Are the contents of string1, string2 the same? " + string1.equals(string2));
+    System.out.println("Does string1 refer to the same memory location as string2? " + (string1 == string2));
 
     /*
-     * Note that for string3, the memory is allocated on heap. Even though
-     * the content is the same as earlier, the reference (memory location where it is stored) is different.
+     * Note that for string3, the memory is allocated on heap. Even though the content is the same as earlier, the
+     * reference (memory location where it is stored) is different.
      */
     var string3 = new String("dinesh");
 
-    System.out.println("Does string1 refer to the same address (memory " +
-        "location) as string3? " + (string1 == string3));
+    System.out.println("Does string1 refer to the same address (memory location) as string3? " + (string1 == string3));
 
     /*
-     * Once you internalize string3, the new string would again point to the
-     * same earlier defined string reference.
+     * Once you internalize string3, the new string would again point to the same earlier defined string reference.
      */
     var string4 = string3.intern();
 
-    System.out.println("Does string4 refer to the same address as string1 " +
-        "after internalizing string3? " + (string1 == string4));
-    System.out.println("Does string4 refer to the same address as string2 " +
-        "after internalizing string3? " + (string2 == string4));
+    System.out.println("Does string4 refer to the same address as string1 after internalizing string3? " + (string1 == string4));
+    System.out.println("Does string4 refer to the same address as string2 after internalizing string3? " + (string2 == string4));
   }
 }
