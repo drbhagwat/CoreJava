@@ -1,6 +1,7 @@
 package com.drbhagwat.chapter.one;
 
 import java.util.Random;
+import java.util.logging.Logger;
 
 /**
  * Write a program that produces a random string of letters and digits by
@@ -18,7 +19,9 @@ public class ExerciseTen {
    * @param args - command-line arguments (none).
    */
   public static void main(String[] args) {
-    System.out.println("A random string of letters and digits is " +
-        Long.toString(new Random().nextLong(), 36));
+    // get the name of the class in a generic way from the current thread instead of hardcoding
+    var logger = Logger.getLogger(Thread.currentThread().getClass().getName());
+    var message = "A random string of letters and digits is " + Long.toString(new Random().nextLong(), 36);
+    logger.info(message);
   }
 }
