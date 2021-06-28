@@ -12,7 +12,7 @@ import java.util.logging.Logger;
  * @version : 1.0
  * @since : 2021-June-26
  */
-public class Exercise7 {
+public class ExerciseSeven {
   private static final long LONG_VALUE_MIN = 0L;
   private static final long LONG_VALUE_MAX = 4294967295L;
 
