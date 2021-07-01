@@ -14,7 +14,7 @@ import java.util.Random;
  * @version : 1.0
  * @since : 2021-July-01
  */
-public class Exercise13 {
+public class ExerciseThirteen {
   /**
    * This method prints a lottery combination, picking six distinct numbers between 1 and 49.
    *
