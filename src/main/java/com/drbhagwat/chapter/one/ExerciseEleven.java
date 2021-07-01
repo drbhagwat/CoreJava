@@ -26,8 +26,7 @@ public class ExerciseEleven {
     var length = string.codePointCount(0, string.length());
     var i = 0;
 
-    System.out.println("This program prints non-ASCII characters together " +
-        "with their Unicode values");
+    System.out.print("This program prints non-ASCII characters together with their Unicode values ");
 
     while (i < length) {
       var j = string.offsetByCodePoints(i, 1);
