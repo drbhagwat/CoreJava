@@ -9,7 +9,7 @@ import java.util.logging.Logger;
  *
  * @author : Dinesh Bhagwat
  * @version : 1.0
- * @since : 2021-June-26
+ * @since : 2021-July-02
  */
 public class ExerciseThree {
   /**
@@ -22,24 +22,24 @@ public class ExerciseThree {
    */
   public static void main(String[] args) {
     // get the name of the class in a generic way from the current thread instead of hardcoding
-    var logger = Logger.getLogger(Thread.currentThread().getClass().getName());
-    var scanner = new Scanner(System.in);
+    Logger logger = Logger.getLogger(Thread.currentThread().getClass().getName());
+    Scanner scanner = new Scanner(System.in);
 
     while (true) {
-      System.out.print("Please input 3 integers (either on a single line, separated by white space " +
-          "or on three separate lines)" + ": ");
+      logger.info("Please input 3 integers (either on a single line, separated by white space " +
+          "or on three separate lines)" + ":");
 
       try {
-        var number1 = scanner.nextInt();
-        var number2 = scanner.nextInt();
-        var number3 = scanner.nextInt();
+        int number1 = scanner.nextInt();
+        int number2 = scanner.nextInt();
+        int number3 = scanner.nextInt();
 
         scanner.close(); // close the system resource once done. System resources are limited in number * best practice
-        var message = "The three numbers are " + number1 + " " + number2 + " " + number3;
+        String message = "The three numbers are " + number1 + " " + number2 + " " + number3;
         logger.info(message);
 
-        var greater = (number1 > number2) ? number1 : number2;
-        var greatest = (greater > number3) ? greater : number3;
+        int greater = (number1 > number2) ? number1 : number2;
+        int greatest = (greater > number3) ? greater : number3;
         message = "The largest is " + greatest;
         logger.info(message);
 

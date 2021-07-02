@@ -20,8 +20,8 @@ public class ExerciseTen {
    */
   public static void main(String[] args) {
     // get the name of the class in a generic way from the current thread instead of hardcoding
-    var logger = Logger.getLogger(Thread.currentThread().getClass().getName());
-    var message = "A random string of letters and digits is " + Long.toString(new Random().nextLong(), 36);
+    Logger logger = Logger.getLogger(Thread.currentThread().getClass().getName());
+    String message = "A random string of letters and digits is " + Long.toString(new Random().nextLong(), 36);
     logger.info(message);
   }
 }

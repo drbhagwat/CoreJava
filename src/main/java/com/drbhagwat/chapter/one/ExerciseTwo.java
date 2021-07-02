@@ -10,7 +10,7 @@ import java.util.logging.Logger;
  *
  * @author : Dinesh Bhagwat
  * @version : 1.0
- * @since : 2021-June-26
+ * @since : 2021-July-02
  */
 public class ExerciseTwo {
   /**
@@ -23,18 +23,18 @@ public class ExerciseTwo {
    */
   public static void main(String[] args) {
     // get the name of the class in a generic way from the current thread instead of hardcoding
-    var logger = Logger.getLogger(Thread.currentThread().getClass().getName());
-    var scanner = new Scanner(System.in);
+    Logger logger = Logger.getLogger(Thread.currentThread().getClass().getName());
+    Scanner scanner = new Scanner(System.in);
 
     while (true) {
-      System.out.print("Please input an integer angle: ");
+      logger.info("Please input an integer angle:");
 
       try {
-        var angle = scanner.nextInt(); // var was introduced in Java Version 10, which makes the code more concise
+        int angle = scanner.nextInt();
         scanner.close(); // close the system resource once done. System resources are limited in number * best practice
         angle %= 360;
         angle = (angle < 0) ? (angle + 360) : angle;
-        var message = String.format("The normalized angle using modulus operator is : %d", angle);
+        String message = String.format("The normalized angle using modulus operator is : %d", angle);
         logger.info(message);
         message =
             String.format("The normalized angle using Math.floorMod is : %d", Math.floorMod(angle, 360));

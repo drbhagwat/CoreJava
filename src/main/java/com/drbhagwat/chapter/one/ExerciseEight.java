@@ -16,10 +16,10 @@ public class ExerciseEight {
    * @param args - command-line arguments (none).
    */
   public static void main(String[] args) {
-    var scanner = new Scanner(System.in);
+    Scanner  scanner = new Scanner(System.in);
     System.out.print("Please input a string: ");
     // define a final variable to store the user input.
-    final var string = scanner.nextLine();
+    final String string = scanner.nextLine();
     scanner.close(); // close the system resource once done. System resources are limited in number * best practice
     System.out.print("All substrings of " + string + " follow: ");
     printSubStrings(string);
@@ -27,16 +27,16 @@ public class ExerciseEight {
 
   private static void printSubStrings(final String string) {
     // finding the length of the string
-    final var stringLength = string.length();
+    final int stringLength = string.length();
 
     // selection of starting point
-    for (var i = 0; i < stringLength; i++) {
+    for (int i = 0; i < stringLength; i++) {
 
       // selection of ending point
-      for (var j = i; j < stringLength; j++) {
+      for (int j = i; j < stringLength; j++) {
 
         // print from starting point to ending point
-        for (var k = i; k <= j; k++) {
+        for (int k = i; k <= j; k++) {
           System.out.print(string.charAt(k));
         }
 

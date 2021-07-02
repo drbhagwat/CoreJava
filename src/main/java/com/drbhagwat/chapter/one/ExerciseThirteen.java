@@ -22,26 +22,26 @@ public class ExerciseThirteen {
    * @param args - command-line arguments (none).
    */
   public static void main(String[] args) {
-    final var TOTAL_NUMBER_OF_NUMBERS = 49;
-    final var NUMBERS_TO_PICK = 6;
+    final int TOTAL_NUMBER_OF_NUMBERS = 49;
+    final int NUMBERS_TO_PICK = 6;
     // get the name of the class in a generic way from the current thread instead of hardcoding
-    var logger = Logger.getLogger(Thread.currentThread().getClass().getName());
+    Logger logger = Logger.getLogger(Thread.currentThread().getClass().getName());
 
     List<Integer> listOfLotteryNumbers = new ArrayList<>();
 
-    for (var i = 0; i < TOTAL_NUMBER_OF_NUMBERS; i++) {
+    for (int i = 0; i < TOTAL_NUMBER_OF_NUMBERS; i++) {
       listOfLotteryNumbers.add(i);
     }
     List<Integer> pickedNumbers = new ArrayList<>();
 
-    for (var i = 0; i < NUMBERS_TO_PICK; i++) {
+    for (int i = 0; i < NUMBERS_TO_PICK; i++) {
       pickedNumbers.add(listOfLotteryNumbers.get(new Random().nextInt(TOTAL_NUMBER_OF_NUMBERS)));
     }
     pickedNumbers.sort(Comparator.comparingInt(i -> i));
     int pickedNumbersSize = pickedNumbers.size();
 
-    for (var i = 0; i < pickedNumbersSize; i++) {
-      var message = pickedNumbers.get(i).toString();
+    for (int i = 0; i < pickedNumbersSize; i++) {
+      String message = pickedNumbers.get(i).toString();
       logger.info(message);
     }
   }

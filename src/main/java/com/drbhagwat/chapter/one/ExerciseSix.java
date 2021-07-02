@@ -8,7 +8,7 @@ import java.util.logging.Logger;
  *
  * @author : Dinesh Bhagwat
  * @version : 1.0
- * @since : 2021-June-26
+ * @since : 2021-July-02
  */
 public class ExerciseSix {
   /**
@@ -18,14 +18,14 @@ public class ExerciseSix {
    */
   public static void main(String[] args) {
     // get the name of the class in a generic way from the current thread instead of hardcoding
-    var logger = Logger.getLogger(Thread.currentThread().getClass().getName());
+    Logger logger = Logger.getLogger(Thread.currentThread().getClass().getName());
 
     BigInteger result = BigInteger.ONE;
 
-    for (var i = 2; i <= 1000; i++) {
+    for (int i = 2; i <= 1000; i++) {
       result = result.multiply(new BigInteger(Integer.toString(i)));
     }
-    var message = "1000! using BigIntegers is " + result;
+    String message = "1000! using BigIntegers is " + result;
     logger.info(message);
   }
 }

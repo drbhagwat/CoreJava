@@ -26,7 +26,7 @@ public class Exercise16 {
         if (len == 0) {
             return 0.0;
         }
-        var sum = 0.0;
+        double sum = 0.0;
 
         for (double v : a) {
             sum += v;

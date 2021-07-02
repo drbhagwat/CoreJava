@@ -7,7 +7,7 @@ import java.util.logging.Logger;
  *
  * @author : Dinesh Bhagwat
  * @version : 1.0
- * @since : 2021-June-26
+ * @since : 2021-July-02
  */
 public class ExerciseFive {
   /**
@@ -17,8 +17,8 @@ public class ExerciseFive {
    */
   public static void main(String[] args) {
     // get the name of the class in a generic way from the current thread instead of hardcoding
-    var logger = Logger.getLogger(Thread.currentThread().getClass().getName());
-    var message = "The largest double value is " + Double.MAX_VALUE;
+    Logger logger = Logger.getLogger(Thread.currentThread().getClass().getName());
+    String message = "The largest double value is " + Double.MAX_VALUE;
     logger.info(message);
 
     int i = (int) Double.MAX_VALUE;
