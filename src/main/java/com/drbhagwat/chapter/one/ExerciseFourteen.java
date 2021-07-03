@@ -36,7 +36,6 @@ public class ExerciseFourteen {
         "followed by a blank-line to end your input: ");
 
     Scanner scanner = new Scanner(System.in);
-    int rowCount = 0;
 
     while (scanner.hasNextLine()) {
       String row = scanner.nextLine();
@@ -49,6 +48,7 @@ public class ExerciseFourteen {
       String[] rowElements = row.split("\\s+");
       int columnCount = rowElements.length;
       int[] columns = new int[columnCount];
+      int rowCount = 0;
 
       for (int i = 0; i < columnCount; i++) {
         columns[i] = Integer.parseInt(rowElements[i]);
