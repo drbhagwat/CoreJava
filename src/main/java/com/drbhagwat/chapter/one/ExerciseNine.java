@@ -20,7 +20,7 @@ public class ExerciseNine {
   public static void main(String[] args) {
     // get the name of the class in a generic way from the current thread instead of hardcoding
     Logger logger = Logger.getLogger(Thread.currentThread().getClass().getName());
-    
+
     String string1 = "dinesh";
 
     /*
@@ -39,7 +39,6 @@ public class ExerciseNine {
      * reference (memory location where it is stored) is different.
      */
     String string3 = new String("dinesh");
-
     message = "Does string1 refer to the same address (memory location) as string3? " + (string1 == string3);
     logger.info(message);
 

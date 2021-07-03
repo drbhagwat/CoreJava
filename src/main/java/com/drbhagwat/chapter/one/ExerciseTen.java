@@ -4,12 +4,12 @@ import java.util.Random;
 import java.util.logging.Logger;
 
 /**
- * Write a program that produces a random string of letters and digits by
- * generating a random long value and printing it in base 36.
+ * Write a program that produces a random string of letters and digits by generating a random long value and printing
+ * it in base 36.
  *
  * @author : Dinesh Bhagwat
  * @version : 1.0
- * @since : 2021-June-28
+ * @since : 2021-July-03
  */
 public class ExerciseTen {
   /**
