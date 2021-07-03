@@ -32,10 +32,9 @@ public class ExerciseEight {
   private static void printSubStrings(final String string) {
     // get the name of the class in a generic way from the current thread instead of hardcoding
     Logger logger = Logger.getLogger(Thread.currentThread().getClass().getName());
-
     // finding the length of the string
     final int stringLength = string.length();
-    StringBuilder answer = new StringBuilder("");
+    StringBuilder subStrings = new StringBuilder("");
 
     // selection of starting point
     for (int i = 0; i < stringLength; i++) {
@@ -45,15 +44,15 @@ public class ExerciseEight {
 
         // print from starting point to ending point
         for (int k = i; k <= j; k++) {
-          answer.append(string.charAt(k));
+          subStrings.append(string.charAt(k));
         }
 
         if (i != stringLength - 1) {
-          answer.append(',');
+          subStrings.append(',');
         }
       }
     }
-    String message = String.valueOf(answer);
+    String message = String.valueOf(subStrings);
     logger.info(message);
   }
 }

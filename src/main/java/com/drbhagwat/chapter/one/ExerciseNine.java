@@ -3,26 +3,24 @@ package com.drbhagwat.chapter.one;
 import java.util.logging.Logger;
 
 /**
- * Section 1.5.3, "String comparison" (Page 25) has an example of two strings s
- * and t so that s.equals(t) but s != t. Come up with a different example that
- * does not use substring.
+ * "String comparison" has an example of two strings s and t so that s.equals(t) but s != t. Come up with a different
+ * example that does not use substring.
  *
  * @author : Dinesh Bhagwat
  * @version : 1.0
- * @since : 2021-June-28
+ * @since : 2021-July-03
  */
 public class ExerciseNine {
   /**
-   * Section 1.5.3, "String comparison" (Page 25) has an example of two strings s
-   * and t so that s.equals(t) but s != t. This method comes up with a different example that
-   * does not use substring.
+   * "String comparison" (Page 25) has an example of two strings s and t so that s.equals(t) but s != t. This method
+   * comes up with a different example that does not use substring.
    *
    * @param args - command-line arguments (none).
    */
   public static void main(String[] args) {
     // get the name of the class in a generic way from the current thread instead of hardcoding
     Logger logger = Logger.getLogger(Thread.currentThread().getClass().getName());
-
+    
     String string1 = "dinesh";
 
     /*
