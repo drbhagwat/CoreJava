@@ -1,6 +1,7 @@
 package com.drbhagwat.chapter.one;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 /**
  * Write a program that reads a two dimensional array of integers and determines whether it is a magic square (i.e.,
@@ -15,10 +16,12 @@ import java.util.Scanner;
  *
  * @author : Dinesh Bhagwat
  * @version : 1.0
- * @since : 2021-July-03
+ * @since : 2021-July-04
  */
 
 public class ExerciseFourteen {
+  private static int sum;
+
   /**
    * This method reads a two dimensional array of integers and determines whether it is a magic square
    *
@@ -31,31 +34,32 @@ public class ExerciseFourteen {
      * not have to allocate the second dimension for the array; it will be decided later
      */
     int[][] array = new int[MAX_ROWS][];
-
-    System.out.print("Please input rows one after the other (separate elements within a row by a white space), " +
-        "followed by a blank-line to end your input: ");
-
+    // get the name of the class in a generic way from the current thread instead of hardcoding
+    Logger logger = Logger.getLogger(Thread.currentThread().getClass().getName());
+    logger.info("Please input rows one after the other (separate elements within a row by a white " +
+        "space), followed by a blank-line to end your input:");
     Scanner scanner = new Scanner(System.in);
+    int rowCount = 0;
 
     while (scanner.hasNextLine()) {
       String row = scanner.nextLine();
 
       // check if the line is a blank line
       if ("".equals(row.trim())) {
-        System.out.println(isMagicSquare(array));
+        String message = "Is the given square a magic square? " + (isMagicSquare(array) ? "Yes" : "No");
+        logger.info(message);
+        scanner.close(); // close the system resource once done. System resources are limited in number * best practice
         break;
       }
       String[] rowElements = row.split("\\s+");
       int columnCount = rowElements.length;
       int[] columns = new int[columnCount];
-      int rowCount = 0;
 
       for (int i = 0; i < columnCount; i++) {
         columns[i] = Integer.parseInt(rowElements[i]);
       }
       array[rowCount++] = columns;
     }
-    scanner.close();
   }
 
   /**
@@ -63,10 +67,9 @@ public class ExerciseFourteen {
    * @return the array has equal number osf rows and columns (square) or not
    */
   private static boolean isTheMatrixASquare(int[][] array) {
-    int rows = getNumberOfRows(array);
+    final int rows = getNumberOfRows(array);
 
-    // For each row, check if the number of columns is the same
-    // as the total number of rows
+    // For each row, check if the number of columns is the same as the number of rows
     for (int i = 0; i < rows; i++) {
 
       if (array[i].length != rows) {
@@ -92,6 +95,65 @@ public class ExerciseFourteen {
 
   /**
    * @param array - two dimensional array
+   * @param rows  - number of rows
+   * @return - true if all rows have teh same sum; false otherwise
+   */
+  private static boolean isRowSumSame(int[][] array, int rows) {
+    int savedRowSum = 0;
+
+    for (int i = 0; i < rows; i++) {
+      // reset the sum for each row
+      sum = 0;
+
+      // keep accumulating sum of all columns in each row
+      for (int j = 0; j < array[i].length; j++) {
+        sum += array[i][j];
+      }
+
+      // save the sum only once
+      if (i == 0) {
+        savedRowSum = sum;
+      } else {
+        if (sum != savedRowSum) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  /**
+   * @param array   - two dimensional array
+   * @param rows    - number of rows
+   * @param columns - number of columns
+   * @return true if all rows have teh same sum; false otherwise
+   */
+  private static boolean isColumnSumSame(int[][] array, int rows, int columns) {
+    int savedColumnSum = 0;
+
+    for (int j = 0; j < columns; j++) {
+      // reset the sum for each column
+      sum = 0;
+
+      // keep accumulating sum of all rows in each column
+      for (int i = 0; i < rows; i++) {
+        sum += array[i][j];
+      }
+
+      // save the sum only once
+      if (j == 0) {
+        savedColumnSum = sum;
+      } else {
+        if (sum != savedColumnSum) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  /**
+   * @param array - two dimensional array
    * @return - true if the given two dimensional array is a magic square, false otherwise.
    */
   private static boolean isMagicSquare(int[][] array) {
@@ -99,38 +161,13 @@ public class ExerciseFourteen {
       return false;
     }
     int rows = getNumberOfRows(array);
-    int savedRowSum = 0;
 
-    for (int i = 0; i < rows; i++) {
-      // reset the rowSum for each row
-      int rowSum = 0;
-
-      // keep accumulating each row
-      for (int j = 0; j < array[i].length; j++) {
-        rowSum += array[i][j];
-      }
-
-      // save the sum only once
-      if (i == 0) {
-        savedRowSum = rowSum;
-      } else {
-        if (rowSum != savedRowSum) {
-          return false;
-        }
-      }
+    if (!isRowSumSame(array, rows)) {
+      return false;
     }
 
-    for (int col = 0; col < rows; col++) {
-      // reset the columnSum for each column
-      int columnSum = 0;
-
-      for (int row = 0; row < rows; row++) {
-        columnSum += array[row][col];
-      }
-
-      if (columnSum != savedRowSum) {
-        return false;
-      }
+    if (!isColumnSumSame(array, rows, rows)) {
+      return false;
     }
     int diagonalSum = 0;
 
@@ -138,7 +175,7 @@ public class ExerciseFourteen {
       diagonalSum += array[i][i];
     }
 
-    if (diagonalSum != savedRowSum) {
+    if (diagonalSum != sum) {
       return false;
     }
     diagonalSum = 0;
@@ -146,6 +183,6 @@ public class ExerciseFourteen {
     for (int i = 0; i < rows; i++) {
       diagonalSum += array[i][rows - (i + 1)];
     }
-    return diagonalSum == savedRowSum;
+    return diagonalSum == sum;
   }
 }
