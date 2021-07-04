@@ -7,6 +7,10 @@ import java.util.logging.Logger;
 
 /**
  * Write a program that stores Pascal's Triangle up to a given n in an Array:ist<ArrayList<Integer>>.
+ *
+ * @author : Dinesh Bhagwat
+ * @version : 1.0
+ * @since : 2021-July-04
  */
 public class ExerciseFifteen {
   /**
