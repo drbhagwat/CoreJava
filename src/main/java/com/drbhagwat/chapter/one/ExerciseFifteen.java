@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  */
 public class ExerciseFifteen {
   /**
-   * This method stores Pascal's Triangle up to a given n in an ArrayList<ArrayList<Integer>>.
+   * This method stores Pascal's Triangle up to a given n in an ArrayList.
    *
    * @param args - command-line arguments (none).
    */
