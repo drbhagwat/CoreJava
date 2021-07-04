@@ -98,7 +98,7 @@ public class ExerciseFourteen {
    * @param rows  - number of rows
    * @return - true if all rows have teh same sum; false otherwise
    */
-  private static boolean isRowSumSame(int[][] array, int rows) {
+  private static boolean doAllRowsHaveSameSum(int[][] array, int rows) {
     int savedRowSum = 0;
 
     for (int i = 0; i < rows; i++) {
@@ -126,9 +126,9 @@ public class ExerciseFourteen {
    * @param array   - two dimensional array
    * @param rows    - number of rows
    * @param columns - number of columns
-   * @return true if all rows have teh same sum; false otherwise
+   * @return true if all columns have the same sum; false otherwise
    */
-  private static boolean isColumnSumSame(int[][] array, int rows, int columns) {
+  private static boolean doAllCoumnsHaveSameSum(int[][] array, int rows, int columns) {
     int savedColumnSum = 0;
 
     for (int j = 0; j < columns; j++) {
@@ -162,11 +162,11 @@ public class ExerciseFourteen {
     }
     int rows = getNumberOfRows(array);
 
-    if (!isRowSumSame(array, rows)) {
+    if (!doAllRowsHaveSameSum(array, rows)) {
       return false;
     }
 
-    if (!isColumnSumSame(array, rows, rows)) {
+    if (!doAllCoumnsHaveSameSum(array, rows, rows)) {
       return false;
     }
     int diagonalSum = 0;

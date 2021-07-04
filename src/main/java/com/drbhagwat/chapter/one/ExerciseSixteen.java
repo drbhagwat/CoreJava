@@ -1,19 +1,23 @@
 package com.drbhagwat.chapter.one;
 
+import java.util.logging.Logger;
+
 /**
- * The following program is a solution to Exercise16 of Chapter1.
- * <p>
  * Improve the average method so that it is called with at least one parameter.
  */
-public class Exercise16 {
+public class ExerciseSixteen {
+
     /**
      * This method improves the average method so that it is called with at least one parameter.
      *
      * @param args - command-line arguments (none).
      */
     public static void main(String[] args) {
+        // get the name of the class in a generic way from the current thread instead of hardcoding
+        Logger logger = Logger.getLogger(Thread.currentThread().getClass().getName());
         double[] a = {1.0, 2.0};
-        System.out.println(average(a));
+        String message = Double.toString(average(a));
+        logger.info(message);
     }
 
     /**
