@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 /**
- * Write a program that stores Pascal's Triangle up to a given n in an Array:ist<ArrayList<Integer>>.
+ * Write a program that stores Pascal's Triangle up to a given n in an ArrayList<ArrayList<Integer>>.
  *
  * @author : Dinesh Bhagwat
  * @version : 1.0
@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  */
 public class ExerciseFifteen {
   /**
-   * This method stores Pascal's Triangle up to a given n in an Array:ist<ArrayList<Integer>>.
+   * This method stores Pascal's Triangle up to a given n in an ArrayList<ArrayList<Integer>>.
    *
    * @param args - command-line arguments (none).
    */
