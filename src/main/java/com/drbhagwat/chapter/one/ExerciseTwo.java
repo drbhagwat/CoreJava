@@ -10,7 +10,7 @@ import java.util.logging.Logger;
  *
  * @author : Dinesh Bhagwat
  * @version : 1.0
- * @since : 2021-July-02
+ * @since : 2021-July-11
  */
 public class ExerciseTwo {
   /**
@@ -22,26 +22,25 @@ public class ExerciseTwo {
    * @param args - command-line arguments (none).
    */
   public static void main(String[] args) {
-    // get the name of the class in a generic way from the current thread instead of hardcoding
-    Logger logger = Logger.getLogger(Thread.currentThread().getClass().getName());
     Scanner scanner = new Scanner(System.in);
 
     while (true) {
-      logger.info("Please input an integer angle:");
+      System.out.print("Please input an integer angle: ");
 
       try {
         int angle = scanner.nextInt();
-        scanner.close(); // close the system resource once done. System resources are limited in number * best practice
+        scanner.close(); // close the system resource as soon as you are done. Resources are limited in number.
         angle %= 360;
         angle = (angle < 0) ? (angle + 360) : angle;
         String message = String.format("The normalized angle using modulus operator is : %d", angle);
+        // get the name of the class in a generic way from the current thread instead of hardcoding
+        Logger logger = Logger.getLogger(Thread.currentThread().getClass().getName());
         logger.info(message);
-        message =
-            String.format("The normalized angle using Math.floorMod is : %d", Math.floorMod(angle, 360));
+        message = String.format("The normalized angle using Math.floorMod is : %d", Math.floorMod(angle, 360));
         logger.info(message);
         break; // break out of the while, as we successfully read an integer angle
       } catch (Exception exception) { // catch the common exception, as multiple exceptions could be thrown
-        scanner.nextLine(); // move the scanner to the beginning of next line for an invalid input
+        scanner.nextLine(); // the input is invalid, move the scanner past the invalid to the new-line and go to while
       }
     }
   }
