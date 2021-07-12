@@ -8,7 +8,7 @@ import java.util.logging.Logger;
  *
  * @author : Dinesh Bhagwat
  * @version : 1.0
- * @since : 2021-July-02
+ * @since : 2021-July-12
  */
 public class ExerciseFour {
   /**
@@ -20,9 +20,9 @@ public class ExerciseFour {
    * @param args - command-line arguments (none).
    */
   public static void main(String[] args) {
+    String message = "The smallest double value is " + Math.nextUp(0.0);
     // get the name of the class in a generic way from the current thread instead of hardcoding
     Logger logger = Logger.getLogger(Thread.currentThread().getClass().getName());
-    String message = "The smallest double value is " + Math.nextUp(0.0);
     logger.info(message);
     message = "The largest double value is " + Math.nextUp(Double.MAX_VALUE);
     logger.info(message);
