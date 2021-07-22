@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.drbhagwat.chapter.one"},{"l":"com.drbhagwat.Chapter2"},{"l":"com.drbhagwat.Chapter3"},{"l":"com.drbhagwat.MultiThreading"}]
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.drbhagwat.chapter.one"},{"l":"com.drbhagwat.chapter.two"},{"l":"com.drbhagwat.Chapter3"},{"l":"com.drbhagwat.MultiThreading"}];updateSearchResults();
