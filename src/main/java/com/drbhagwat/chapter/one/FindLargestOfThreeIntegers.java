@@ -10,7 +10,7 @@ import java.util.logging.Logger;
  *
  * @author : Dinesh Bhagwat
  * @version : 1.0
- * @since : 2021-July-22
+ * @since : 2021-July-26
  */
 public class FindLargestOfThreeIntegers {
   /**
@@ -28,7 +28,8 @@ public class FindLargestOfThreeIntegers {
 
     while (true) {
       System.out.print("Please input 3 integers (either on a single line, " +
-          "separated by white space or on three separate lines: ");
+          "separated by white space or on three separate lines followed by " +
+          "the enter key: ");
 
       /* get the name of the class in a generic way from the current
       thread instead of hardcoding */
@@ -39,8 +40,11 @@ public class FindLargestOfThreeIntegers {
         int integer1 = scanner.nextInt();
         int integer2 = scanner.nextInt();
         int integer3 = scanner.nextInt();
-        scanner.close(); // close the system resource as soon as you are done
-        // . Resources are limited in integer.
+
+        /* close the system resource as soon as you are done. Resources are
+        limited in integer. */
+        scanner.close();
+
         String output = String.format("The three integers are %d %d %d",
             integer1, integer2, integer3);
         logger.info(output);
@@ -48,6 +52,7 @@ public class FindLargestOfThreeIntegers {
         int largest = (larger > integer3) ? larger : integer3;
         output = "The largest is " + largest + " using the ternary operator.";
         logger.info(output);
+
         largest = Math.max(integer3, Math.max(integer1, integer2));
         output = "The largest is " + largest + " using Math.max.";
         logger.info(output);
@@ -62,7 +67,7 @@ public class FindLargestOfThreeIntegers {
         input to the new-line and go back to the while loop */
         scanner.nextLine();
         // catch the common exception at the end
-      } catch (Exception exception) {
+      } catch (Exception exception) { // this should never happen
         var errorMessage = "Error reading input. Exiting the program";
         logger.info(errorMessage);
         System.exit(-1);
