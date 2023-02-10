@@ -1,4 +1,4 @@
-package com.drbhagwat.chapter.two;
+package com.drbhagwat.chapters.two;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;

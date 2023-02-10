@@ -1,4 +1,4 @@
-package com.drbhagwat.chapter.two;
+package com.drbhagwat.chapters.two;
 
 /* 
  * Implement a class Car that models a car traveling along the x-axis, consuming 

@@ -1,4 +1,4 @@
-package com.drbhagwat.chapter.two;
+package com.drbhagwat.chapters.two;
 
 import java.util.Arrays;
 import java.util.List;

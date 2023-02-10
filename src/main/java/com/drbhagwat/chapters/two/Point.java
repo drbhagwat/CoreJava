@@ -1,4 +1,4 @@
-package com.drbhagwat.chapter.two;
+package com.drbhagwat.chapters.two;
 
 /* 
  * Implement an immutable class Point that describes a point in the plane. 

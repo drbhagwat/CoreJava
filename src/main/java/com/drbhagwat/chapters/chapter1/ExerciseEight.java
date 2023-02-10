@@ -1,4 +1,4 @@
-package com.drbhagwat.chapter.one;
+package com.drbhagwat.chapters.chapter1;
 
 import java.util.Scanner;
 import java.util.logging.Logger;
