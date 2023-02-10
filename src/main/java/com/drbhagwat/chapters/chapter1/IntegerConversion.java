@@ -25,8 +25,7 @@ public class IntegerConversion {
 	public static void main(String[] args) {
 		var scanner = new Scanner(System.in);
 
-		do {
-			
+		do {		
 			System.out.print("Please type an integer followed by the enter key: ");
 
 			/*
