@@ -1,5 +1,9 @@
-target/
-
 ### IntelliJ IDEA ###
+target/
 .idea
 /bin/
+
+### Eclipse IDE ###
+.project
+.settings/
+.classpath
